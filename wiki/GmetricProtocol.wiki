@@ -1,0 +1,77 @@
+#summary Reverse-Engineer of the Gmetric Protocol
+
+= The Gmetric Protocol =
+
+== XDR Format ==
+
+
+The XDR format is formally described in http://www.ietf.org/rfc/rfc4506.txt
+
+However it's pretty simple:
+
+   * 32-bit integers: stored in BIG ENDIAN FORMAT
+   * 8-bit ('char'), 16-bit integers ('short'), stored as 32-bit integers.
+   * enumerations: same as signed integers
+   * boolean types, "0" is false, "1" is true, as signed integer
+   * 32-bit 'float' types
+   * 64-bit 'double' floating point types
+
+To repeat, integers that are less than 32-bits, are stored as 32-bits.
+
+"Strings" are just a bit more complicated:
+
+   * 32-bit unsigned integer n, the length of the data
+   * n bytes of raw data
+   * r bytes of padding, so (n+r) mod 4 == 0 (i.e. add enough zero bytes to n+r is a multiple of 4)
+
+That's all we need to know.
+
+== Enumerations and Constants ==
+
+{{{
+
+enum ganglia_slope {
+    GANGLIA_SLOPE_ZERO = 0,
+    GANGLIA_SLOPE_POSITIVE = 1,
+    GANGLIA_SLOPE_NEGATIVE = 2,
+    GANGLIA_SLOPE_BOTH = 3,
+    GANGLIA_SLOPE_UNSPECIFIED = 4
+};
+
+enum Ganglia_value_types {
+    GANGLIA_VALUE_UNKNOWN = 0,
+    GANGLIA_VALUE_STRING = 1,
+    GANGLIA_VALUE_UNSIGNED_SHORT = 2,
+    GANGLIA_VALUE_SHORT = 3,
+    GANGLIA_VALUE_UNSIGNED_INT = 4,
+    GANGLIA_VALUE_INT = 5,
+    GANGLIA_VALUE_FLOAT = 6,
+    GANGLIA_VALUE_DOUBLE = 7,
+};
+
+static const char* typestrings[] = {
+    "",        // GANGLIA_VALUE_UNKNOWN
+    "string",  // GANGLIA_VALUE_STRING
+    "uint16",  // GANGLIA_VALUE_UNSIGNED_SHORT
+    "int16",   // GANGLIA_VALUE_SHORT
+    "uint32",  // GANGLIA_VALUE_UNSIGNED_INT
+    "int32",   // GANGLIA_VALUE_INT
+    "float",   // GANGLIA_VALUE_FLOAT
+    "double"   // GANGLIA_VALUE_DOUBLE
+};
+
+}}}
+
+
+== The Protocol ==
+
+|| Index || Format            || Notes||
+|| 1     || xdr_enum(0)       || 0 stands for gmetric ||
+|| 2     || xdr_string(type)  ||  That's right the enum is not used.  We send the string! || 3     || xdr_string(name)  || ||
+|| 4     || xdr_string(value) || That's right, even though we have a type and use XDR,  we pass a string as the value ||
+||       || xdr_string(units) || ||
+||       || xdr_u_int(slope)  || ||
+||       || xdr_u_int(tmax)   || ||
+||       || xdr_u_int(dmax)   || ||
+
+
