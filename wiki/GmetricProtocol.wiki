@@ -1,4 +1,4 @@
-#summary Reverse-Engineer of the Gmetric Protocol
+#summary Reverse-Engineering of the Gmetric Protocol
 
 = The Gmetric Protocol =
 
