@@ -8,9 +8,7 @@ The XDR format is formally described in http://www.ietf.org/rfc/rfc4506.txt
 
 Numeric types are stored as _big_ endian or 'network' order.  This is the same as what Java uses, and the native format of Sun and  PowerPC based machines.  This is different than what x86 machines use.
 
-Also any integer type that is less than 4 bytes, is converted to a full 32-bit integer type before being stored.
-
-However it's pretty simple:
+For integer types, any type that is 4 bytes, is converted to a full 32-bit integer type before being stored.  Specifically:
    * 32-bit integers: stored in big endian format.
    * 8-bit ('char'), 16-bit integers ('short'), stored as 32-bit integers.
    * enumerations: same as signed integers
@@ -20,13 +18,10 @@ For floating point types:
    * 32-bit 'float' types -- standard IEEE format
    * 64-bit 'double' floating point types -- standard IEEE format
 
-"Strings" are just a bit more complicated:
-
+Strings are just a bit more complicated:
    * 32-bit unsigned integer n, the length of the data
    * n bytes of raw data
    * r bytes of padding, so (n+r) mod 4 == 0 (i.e. add enough zero bytes to n+r is a multiple of 4)
-
-
 
 == Enumerations and Constants ==
 
