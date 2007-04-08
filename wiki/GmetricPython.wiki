@@ -1,4 +1,5 @@
 #summary A gmetric client in pure python
+#labels Featured
 = Gmetric Python =
 
 
