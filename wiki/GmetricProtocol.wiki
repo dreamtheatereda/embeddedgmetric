@@ -17,8 +17,8 @@ However it's pretty simple:
    * boolean types, "0" is false, "1" is true, as signed integer
 
 For floating point types:
-   * 32-bit 'float' types
-   * 64-bit 'double' floating point types
+   * 32-bit 'float' types -- standard IEEE format
+   * 64-bit 'double' floating point types -- standard IEEE format
 
 "Strings" are just a bit more complicated:
 
@@ -38,17 +38,6 @@ enum ganglia_slope {
     GANGLIA_SLOPE_NEGATIVE = 2,
     GANGLIA_SLOPE_BOTH = 3,
     GANGLIA_SLOPE_UNSPECIFIED = 4
-};
-
-enum Ganglia_value_types {
-    GANGLIA_VALUE_UNKNOWN = 0,
-    GANGLIA_VALUE_STRING = 1,
-    GANGLIA_VALUE_UNSIGNED_SHORT = 2,
-    GANGLIA_VALUE_SHORT = 3,
-    GANGLIA_VALUE_UNSIGNED_INT = 4,
-    GANGLIA_VALUE_INT = 5,
-    GANGLIA_VALUE_FLOAT = 6,
-    GANGLIA_VALUE_DOUBLE = 7,
 };
 
 static const char* typestrings[] = {
