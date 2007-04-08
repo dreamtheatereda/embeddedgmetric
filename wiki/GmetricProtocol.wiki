@@ -68,9 +68,9 @@ static const char* typestrings[] = {
 || Index || Format            || Notes||
 || 1     || xdr_enum(0)       || 0 stands for gmetric ||
 || 2     || xdr_string(type)  || The enum is not used.  The appropriate string from `typestrings` is used instead ||
-|| 3     || xdr_string(name)  || ||
+|| 3     || xdr_string(name)  || Arbitrary string ||
 || 4     || xdr_string(value) || Binary XDR encoding is _not_ used ||
-|| 5     || xdr_string(units) || ||
+|| 5     || xdr_string(units) || Arbitrary string ||
 || 6     || xdr_enum(slope)   || See gmetric bug below ||
 || 7     || xdr_u_int(tmax)   || ||
 || 8     || xdr_u_int(dmax)   || ||
