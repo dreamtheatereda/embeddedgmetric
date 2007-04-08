@@ -6,12 +6,12 @@
 
 The XDR format is formally described in http://www.ietf.org/rfc/rfc4506.txt
 
-Numeric types are stored as _little_ endian format.  This is the same as what Java uses, and the native type of x86 processors (and different than the native format of Sun and  PowerPC).
+Numeric types are stored as _big_ endian or 'network' order.  This is the same as what Java uses, and the native format of Sun and  PowerPC based machines.  This is different than what x86 machines use.
 
 Also any integer type that is less than 4 bytes, is converted to a full 32-bit integer type before being stored.
 
 However it's pretty simple:
-   * 32-bit integers: stored in little
+   * 32-bit integers: stored in big endian format.
    * 8-bit ('char'), 16-bit integers ('short'), stored as 32-bit integers.
    * enumerations: same as signed integers
    * boolean types, "0" is false, "1" is true, as signed integer
