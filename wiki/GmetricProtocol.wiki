@@ -2,6 +2,8 @@
 
 = The Gmetric Protocol =
 
+The gmetric protocol as used by [http://www.ganglia.info/ ganglia] encodes raw data using XDR and strings.
+
 == XDR Format ==
 
 The XDR format is formally described in http://www.ietf.org/rfc/rfc4506.txt
