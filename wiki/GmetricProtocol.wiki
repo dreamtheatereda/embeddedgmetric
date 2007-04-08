@@ -4,19 +4,21 @@
 
 == XDR Format ==
 
-
 The XDR format is formally described in http://www.ietf.org/rfc/rfc4506.txt
 
-However it's pretty simple:
+Numeric types are stored as _little_ endian format.  This is the same as what Java uses, and the native type of x86 processors (and different than the native format of Sun and  PowerPC).
 
-   * 32-bit integers: stored in BIG ENDIAN FORMAT
+Also any integer type that is less than 4 bytes, is converted to a full 32-bit integer type before being stored.
+
+However it's pretty simple:
+   * 32-bit integers: stored in little
    * 8-bit ('char'), 16-bit integers ('short'), stored as 32-bit integers.
    * enumerations: same as signed integers
    * boolean types, "0" is false, "1" is true, as signed integer
+
+For floating point types:
    * 32-bit 'float' types
    * 64-bit 'double' floating point types
-
-To repeat, integers that are less than 32-bits, are stored as 32-bits.
 
 "Strings" are just a bit more complicated:
 
@@ -24,7 +26,7 @@ To repeat, integers that are less than 32-bits, are stored as 32-bits.
    * n bytes of raw data
    * r bytes of padding, so (n+r) mod 4 == 0 (i.e. add enough zero bytes to n+r is a multiple of 4)
 
-That's all we need to know.
+
 
 == Enumerations and Constants ==
 
