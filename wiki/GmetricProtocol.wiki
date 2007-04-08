@@ -67,11 +67,11 @@ static const char* typestrings[] = {
 
 || Index || Format            || Notes||
 || 1     || xdr_enum(0)       || 0 stands for gmetric ||
-|| 2     || xdr_string(type)  ||  That's right the enum is not used.  We send the string! || 3     || xdr_string(name)  || ||
+|| 2     || xdr_string(type)  || That's right the enum is not used.  We send the string!||
+|| 3     || xdr_string(name)  || ||
 || 4     || xdr_string(value) || That's right, even though we have a type and use XDR,  we pass a string as the value ||
 ||       || xdr_string(units) || ||
 ||       || xdr_u_int(slope)  || ||
 ||       || xdr_u_int(tmax)   || ||
 ||       || xdr_u_int(dmax)   || ||
-
 
