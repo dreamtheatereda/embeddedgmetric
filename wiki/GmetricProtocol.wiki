@@ -39,7 +39,6 @@ enum ganglia_slope {
 };
 
 static const char* typestrings[] = {
-    "",        // GANGLIA_VALUE_UNKNOWN
     "string",  // GANGLIA_VALUE_STRING
     "uint16",  // GANGLIA_VALUE_UNSIGNED_SHORT
     "int16",   // GANGLIA_VALUE_SHORT
@@ -56,10 +55,19 @@ static const char* typestrings[] = {
 
 || Index || Format            || Notes||
 || 1     || xdr_enum(0)       || 0 stands for gmetric ||
-|| 2     || xdr_string(type)  || The enum is not used.  The appropriate string from `typestrings` is used instead ||
+|| 2     || xdr_string(type)  ||  The appropriate string from `typestrings` is used instead ||
 || 3     || xdr_string(name)  || Arbitrary string ||
 || 4     || xdr_string(value) || Binary XDR encoding is _not_ used ||
 || 5     || xdr_string(units) || Arbitrary string ||
-|| 6     || xdr_enum(slope)   || See gmetric bug below ||
+|| 6     || xdr_enum(slope)   || See slope bug below ||
 || 7     || xdr_u_int(tmax)   || ||
 || 8     || xdr_u_int(dmax)   || ||
+
+
+=== slope bug ===
+
+As of 12-Apr-2007, gmetriic and gmond has a bug.
+
+Gmetric (the command line application) will only send a slope of type "0" (zero) or type "3" (both).   
+
+Gmond when printing XML data, will only print "zero" or "both" for the slope.  Meaning if you send a slope of "1", (positive), gmond will print "both".
