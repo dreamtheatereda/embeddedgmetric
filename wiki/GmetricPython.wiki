@@ -6,9 +6,9 @@ Using the GmetricProtocol it's a snap to write a gmond/gmetric client, Especiall
 
 I'm not a python super-expert so any hints to make it more pythonic would be welcome.
 
-== Source ==
+== Source and Install ==
 
-The source code is  [http://embeddedgmetric.googlecode.com/svn/trunk/python/gmetric.py gmetric.py].  You can directly download using that link or it's included in the full distribution in the =python= directory.  There is also a unit test.
+The source code is  [http://embeddedgmetric.googlecode.com/svn/trunk/python/gmetric.py gmetric.py].  You can directly download using that link or it's included in the full distribution in the =python= directory.   There is a =setup.py= script and unit test.
 
 == Command Line Usage ==
 
