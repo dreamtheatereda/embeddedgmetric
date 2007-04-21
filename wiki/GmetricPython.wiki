@@ -2,7 +2,7 @@
 #labels Featured
 = Gmetric Python =
 
-Using the GmetricProtcol it's a snap to write a gmond/gmetric client, Especially with python since it includes the XDR formatting natively.
+Using the GmetricProtocol it's a snap to write a gmond/gmetric client, Especially with python since it includes the XDR formatting natively.
 
 == Source ==
 
