@@ -2,6 +2,11 @@
 #labels Featured
 = Gmetric Python =
 
+Using the GmetricProtcol it's a snap to write a gmond/gmetric client, Especially with python since it includes the XDR formatting natively.
+
+== Source ==
+
+The source code is  [http://embeddedgmetric.googlecode.com/svn/trunk/python/gmetric.py gmetric.py].  You can directly download using that link or it's included in the full distribution in the =python= directory.  There is also a unit test.
 
 == Command Line Usage ==
 
