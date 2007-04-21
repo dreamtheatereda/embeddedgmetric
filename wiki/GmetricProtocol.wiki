@@ -31,10 +31,10 @@ Strings are just a bit more complicated:
 {{{
 
 enum ganglia_slope {
-    GANGLIA_SLOPE_ZERO = 0,
-    GANGLIA_SLOPE_POSITIVE = 1,
-    GANGLIA_SLOPE_NEGATIVE = 2,
-    GANGLIA_SLOPE_BOTH = 3,
+    GANGLIA_SLOPE_ZERO = 0,           ///< data is fixed, mostly unchanging
+    GANGLIA_SLOPE_POSITIVE = 1,     ///< value is always increasing (counter)
+    GANGLIA_SLOPE_NEGATIVE = 2,   ///< value is always decreasing
+    GANGLIA_SLOPE_BOTH = 3,         ///< value can be anything
     GANGLIA_SLOPE_UNSPECIFIED = 4
 };
 
