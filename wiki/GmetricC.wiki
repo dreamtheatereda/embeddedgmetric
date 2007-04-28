@@ -1,4 +1,5 @@
 #summary libembeddedgmetric - a C/C99/C++ library for gmetric
+#labels Featured
 
 
 == Simple Usage ==
