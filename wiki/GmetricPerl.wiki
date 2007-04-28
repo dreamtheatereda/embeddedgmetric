@@ -1,4 +1,5 @@
 #summary pure perl module for sending gmetric data to gmond
+#labels Featured
 
 =Gmetric Perl=
 
