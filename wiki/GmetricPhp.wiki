@@ -26,3 +26,7 @@ So the udp options uses raw fsockopen, fwrite, fclose which should work in all v
 
 
 Oh yeah, more bad news.  It's not tested yet.
+
+== HELP WANTED ==
+
+I'm not a php expert. Any help/advice on packaging, making it OO, etc would be welcome! 
