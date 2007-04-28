@@ -1,4 +1,5 @@
 #summary gmetric implemented in pure php4/php5
+#labels Featured
 
 Hi there, good news, bad news.
 
