@@ -1,4 +1,5 @@
 #summary libembeddedgmetric - a C/C99/C++ library for gmetric
+#labels Featured
 
 
 == Simple Usage ==
@@ -82,4 +83,3 @@ gmetric_close(&g);
 This version coverts the metric value (e.g. 'int', 'double') to a string (required by protocol) _without_ using `sprintf` (or related functions). 
 
 See [http://code.google.com/p/stringencoders/wiki/NumToA here] for details.  Besides making embeddedgmetric even faster, it also makes it more portable and is safer (e.g. no more buffer overflows, core dumps, etc).
-
