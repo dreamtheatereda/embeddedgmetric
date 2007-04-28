@@ -4,7 +4,7 @@
 
 THIS IS ALPHA
 
-It "work" but it's pretty yet.  If you must, look at the source file to use.
+It "works" but it's pretty yet.  If you must, look at the source file to use.
 
 == Usage ==
 
