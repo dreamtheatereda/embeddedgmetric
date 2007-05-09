@@ -3,9 +3,14 @@
 
 =Gmetric Perl=
 
+Yet another implementation of the gmetric protocol, this time in perl.
+
+Check out [http://embeddedgmetric.googlecode.com/svn/trunk/perl/gmetric.pl perl/gmetric.pl]
+
 THIS IS ALPHA
 
 It "works" but it's pretty yet.  If you must, look at the source file to use.
+
 
 == Usage ==
 
