@@ -66,10 +66,12 @@ static const char* typestrings[] = {
 
 === slope bug ===
 
-As of 12-Apr-2007, gmetriic and gmond has a bug.
+All versions of gmetric and gmond <= 3.0.4 have a bug.
 
 Gmetric (the command line application) will only send a slope of type "0" (zero) or type "3" (both).   
 
 Gmond when printing XML data, will only print "zero" or "both" for the slope.  Meaning if you send a slope of "1", (positive), gmond will print "both".
 
+
+This is fixed on mainline, I believe to be released as 3.1
 
