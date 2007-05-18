@@ -33,9 +33,9 @@ gmetric_close(&g);
 
 If you had a double value and not a string, you would just change
 {{{
-msg.type = GANGLIA_VALUE_DOUBLE;
+msg.type = GMETRIC_VALUE_DOUBLE;
 msg.value.v_double = 1.2345;
-msg.slope = GANGLIA_SLOPE_BOTH;
+msg.slope = GMETRIC_SLOPE_BOTH;
 }}}
 
 etc.
