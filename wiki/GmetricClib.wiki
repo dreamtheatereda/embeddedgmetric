@@ -16,11 +16,11 @@ if (!gmetric_open(g, 'localhost', 8649)) {
 /* generate the message and send */
 gmetric_message msg;
 gmetric_message_clear(&msg);
-msg.type = GANGLIA_VALUE_STRING;
+msg.type = GMETRIC_VALUE_STRING;
 msg.name = 'foo';
 msg.value.v_string = 'bar';
 msg.units ='units!'
-msg.slope = GANGLIA_SLOPE_ZERO;
+msg.slope = GMETRIC_SLOPE_ZERO;
 msg.tmax = 60;
 msg.dmax = 0;
 if (gmetric_send(&g, &msg) == -1) {
@@ -55,15 +55,15 @@ if (!gmetric_open(g, 'localhost', 8649)) {
 
 /* make buffers */
 gmetric_message msg;
-char buf[MAX_GANGLIA_MESSAGE];
+char buf[MAX_GMETRIC_MESSAGE];
 
 foreach metric {
     gmetric_message_clear(&msg);
-    msg.type = 'string';
+    msg.type = GMETRIC_VALUE_STRING;
     msg.name = 'foo';
     msg.value.v_string = 'bar';
     msg.unit = 'no units';
-    msg.slope = GANGLIA_SLOPE_BOTH;
+    msg.slope = GMETRIC_SLOPE_BOTH;
     msg.tmax = 120;
     msg.dmax = 0;
 
@@ -82,4 +82,4 @@ gmetric_close(&g);
 
 This version coverts the metric value (e.g. 'int', 'double') to a string (required by protocol) _without_ using `sprintf` (or related functions). 
 
-See [http://code.google.com/p/stringencoders/wiki/NumToA here] for details.  Besides making embeddedgmetric even faster, it also makes it more portable and is safer (e.g. no more buffer overflows, core dumps, etc).
+See [http://code.google.com/p/stringencoders/wiki/NumToA here] for details.  Besides making `embeddedgmetric` even faster, it also makes it more portable and is safer (e.g. no more buffer overflows, core dumps, etc).
