@@ -1,0 +1,76 @@
+#gmond re-implemented in python
+
+= WARNING =
+
+This isn't checked in yet, and a very much work in progress.  Don't take any of this too seriously.  Some it is just notes.  Please nothing personal!
+
+= Introduction =
+
+"pmond" is a python re-implementation of gmond in python.
+
+
+== Goals ==
+
+# Simplicity: collecting metrics doesn't sound hard, and therefore neither should the code
+# Extensible and Documented: easy to add new metrics, and easy for applications to directly send metrics
+# "Reasonable Performance":  should be handle to handle a few thousand requests per second, which should cover clusters of a few hundred machines, and only take a few megabytes of real memory.
+# For _non_-embedded systems, with machines of modern performance with reasonable memory.
+
+I don't know what the official gmond's goals are.  I don't work at  supercomputer institute.
+
+== The Tree ==
+
+The internal data structure of gmond is a tree.
+
+# Gmond is basically a tree, which can be implemented as a series of hash tables (cluster/machine/metric name/metric metadata).
+# Each metric has an expiration date.  Past the date the node on the tree is deleted.
+# There are some other minor details but that's about it
+
+== The Reader ==
+
+The collector sits on a socket and reads UDP or multicast packets of metrics data.  The API here is a XDR encoded "packet" and it's small, typically under 100 bytes.   XDR encoding is really simple and most scripting languages and operating systems provide a library for it.
+
+== The Writer ==
+
+The writer listens on a different socket, and when _any_ request comes in, it serialize the tree into a XML format.
+
+== Collector ==
+
+The collector, guess what, collects metrics on periodic basis.  The `gmond` implementation typically uses direct system calls and has many modules that do the right thing for different operating system types.   But even with direct system calls, a good bit of string processing might be needed.
+
+== Emitter ==
+
+Interesting, the collector does _not_ put it's stats into the internal tree.    Instead it "emits"  the metric in XDR format as  UDP or multicast packet.  It might be the same local machine or it might be another machine.
+
+It may be that gmond does an optimization, where if the emitter it sending to the localhost, it just does a direct insert to the tree.
+
+== Other Stuff ==
+
+of course there is code to parse config and command lines
+
+= Implementation =
+
+The  tree/reader/writer and collector/emitter could be completely separated and talk via XDR packets.  However then  one would need _two_ daemons running.  That would suck, so they are merged into one.  But logically they are distinct.
+
+The tree/reader/writer is honestly, a hundred lines of code in _any scripting language_.  There is really no advantage to use C, in fact there a lot of reasons _not_ to use C for something so basic.  I'll talk about performance later.
+
+The collector: well, even in C , t's frequently open a file (in `/proc`) or getting a string from `sysctl` doing string parsing.  not really complicated stuff (well doing it in raw C can be tricky).  Most of this information doesn't _need_ to be system call --  it's available via `netstat`, `iostat`, `ps`, `sysctl`, etc .  Making a few process calls every few seconds is _free_.    Really,
+
+Also lot of people want to customize metrics and make new ones.
+
+The emitter is pretty simple: for example here it is in python.
+
+
+= Performance=
+
+In 2008, calling a few low level system commands per second like 'sysctl' is _free_.  Yes,  if you _continuosly_ start process to  call  `sysctl` (minimum 300 RPS), you will be using 30% of CPU.  But that's not what happens in metric gathering. You might call 1 or 2 every _few_ seconds.  
+
+Worse cast, writing a extension to your scripting language to call sysctl, would be very very simple to do. Using Cyrex or Pyrex, it might take 10 minutes, and you'd probably get a 10x improvement on that.  _If you needed to_.
+
+
+
+
+
+
+
+
