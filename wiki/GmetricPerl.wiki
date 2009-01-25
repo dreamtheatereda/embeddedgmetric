@@ -9,7 +9,7 @@ Check out [http://embeddedgmetric.googlecode.com/svn/trunk/perl/gmetric.pl perl/
 
 THIS IS ALPHA
 
-It "works" but it's pretty yet.  If you must, look at the source file to use.
+It "works" but it's not pretty yet.
 
 
 == Usage ==
