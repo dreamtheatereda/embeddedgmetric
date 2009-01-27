@@ -1,0 +1,21 @@
+#summary Embedded gmetric for java
+
+It's one file,  and not very "java-like".  I have no intention of add enums and various type checkers.  Lean and mean!
+
+{{{
+ //  you specify value as string and type
+  public static void send(InetAddress address, int port,
+                             String name, String value, String type,
+                             String units, int slope, int tmax, int dmax)
+
+    // helper for double values
+    public static void send(InetAddress address, int port,
+                            String name, double dvalue,
+                            String units, int slope, int tmax, int dmax)
+
+   // helper for int values
+   public static void send(InetAddress address, int port,
+                            String name, int dvalue,
+                            String units, int slope, int tmax, int dmax)
+
+}}}
