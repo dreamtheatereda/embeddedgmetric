@@ -3,6 +3,9 @@
 
 It's [http://embeddedgmetric.googlecode.com/svn/trunk/java/gmetric.java one file],  and not very "java-like".  I have no intention of adding enums and various type checkers.  Lean and mean!  There are some statics for helping you with valid slope and type values.
 
+Right now it's UDP (aka "DataGram") only.  However it should be a snap to add multi-cast.
+
+
 {{{
  //  you specify value as string and type
   public static void send(InetAddress address, int port,
