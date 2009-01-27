@@ -1,6 +1,6 @@
 #summary Embedded gmetric for java
 
-It's one file,  and not very "java-like".  I have no intention of add enums and various type checkers.  Lean and mean!
+It's one file,  and not very "java-like".  I have no intention of adding enums and various type checkers.  Lean and mean!  There are some statics for helping you with valid slope and type values.
 
 {{{
  //  you specify value as string and type
