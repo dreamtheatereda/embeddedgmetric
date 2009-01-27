@@ -1,4 +1,5 @@
 #summary Embedded gmetric for java
+#labels Featured
 
 It's one file,  and not very "java-like".  I have no intention of adding enums and various type checkers.  Lean and mean!  There are some statics for helping you with valid slope and type values.
 
@@ -8,8 +9,8 @@ It's one file,  and not very "java-like".  I have no intention of adding enums a
                              String name, String value, String type,
                              String units, int slope, int tmax, int dmax)
 
-    // helper for double values
-    public static void send(InetAddress address, int port,
+   // helper for double values
+   public static void send(InetAddress address, int port,
                             String name, double dvalue,
                             String units, int slope, int tmax, int dmax)
 
