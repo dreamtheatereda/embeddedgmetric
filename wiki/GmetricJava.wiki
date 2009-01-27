@@ -3,7 +3,7 @@
 
 It's [http://embeddedgmetric.googlecode.com/svn/trunk/java/gmetric.java one file],  and not very "java-like".  I have no intention of adding enums and various type checkers.  Lean and mean!  There are some statics for helping you with valid slope and type values.
 
-Right now it's UDP (aka "DataGram") only.  However it should be a snap to add multi-cast.
+Right now it's UDP (aka "!DataGram") only.  However it should be a snap to add multi-cast.
 
 
 {{{
