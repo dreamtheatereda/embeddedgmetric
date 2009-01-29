@@ -2,7 +2,7 @@
 
 Gmond is a interesting service.   Oddly there isn't much of a "systems overview"  on [http://ganglia.info Ganglia] website, and reading the [http://sourceforge.net/docman/display_doc.php?docid=128913&group_id=43021 documentation] may leave you scratching your head.
 
- It does a few things:
+It does a few things:
 
   * collects machine metrics (cpu, load, bytes in/out, disk space, etc)...
   * send metrics to "the mothership"  to every other machine via multicast
