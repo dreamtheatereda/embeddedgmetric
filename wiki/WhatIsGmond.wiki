@@ -1,15 +1,16 @@
 #summary So what is gmond anyways
 
-Gmond is a interesting service. It does a few things:
+Gmond is a interesting service.   Oddly there isn't much of a "systems overview"  on [http://ganglia.info Ganglia] website, and reading the [http://sourceforge.net/docman/display_doc.php?docid=128913&group_id=43021 documentation] may leave you scratching your head.
+
+ It does a few things:
 
   * collects machine metrics (cpu, load, bytes in/out, disk space, etc)...
   * send metrics to "the mothership"  to every other machine via multicast
   * receive metrics from other machines
-  * manage metrics, expiring old, stale entries.
+  * manages metrics, expiring old, stale entries.
   * exporting metrics into XML format
 
 I call these subsystems: the tree, the reader, the writer, the collector and emiter.
-
 
 == The Tree ==
 
@@ -44,5 +45,3 @@ of course there is code to parse config and command lines
 = Implementation =
 
 The  tree/reader/writer and collector/emitter could be completely separated and talk via XDR packets.  However then  one would need _two_ daemons running.  That would suck, so they are merged into one.  But logically they are distinct.
-
-
