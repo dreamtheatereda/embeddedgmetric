@@ -12,6 +12,8 @@ It does a few things:
 
 If this sounds a bit confused, there is a method to the madness and it allows all sorts of interesting configuration (most of which may not be interesting to you, but they are possible).
 
+(Oh yeah, this is "embedded gmetric", let me say what 'gmetric' is.  It's a tool for directly injecting new metrics into gmond).
+
 I think of gmond as a collection of subsystems I calls: the tree, the reader, the writer, the collector and emiter.
 
 == The Tree ==
