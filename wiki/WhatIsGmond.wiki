@@ -5,12 +5,14 @@ Gmond is a interesting service.   Oddly there isn't much of a "systems overview"
 It does a few things:
 
   * collects machine metrics (cpu, load, bytes in/out, disk space, etc)...
-  * send metrics to "the mothership"  to every other machine via multicast
+  * send metrics to "the mothership" or to every other machine running gmond via multicast
   * receive metrics from other machines
   * manages metrics, expiring old, stale entries.
   * exporting metrics into XML format
 
-I call these subsystems: the tree, the reader, the writer, the collector and emiter.
+If this sounds a bit confused, there is a method to the madness and it allows all sorts of interesting configuration (most of which may not be interesting to you, but they are possible).
+
+I think of gmond as a collection of subsystems I calls: the tree, the reader, the writer, the collector and emiter.
 
 == The Tree ==
 
