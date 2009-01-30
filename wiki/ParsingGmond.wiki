@@ -16,6 +16,39 @@ sudo yum install python-lxml
 
 otherwise, you'll need [http://xmlsoft.org/downloads.html libxml2] first, and manual install lxml.  It should be fairly straight forward.
 
+== Getting the XML ==
+
+Recall that just this:
+{{{
+telnet localhost 8649
+}}}
+
+gives you the XML.  gmond starts spitting back xml as soon as you _connect_.  No headers, no arguments.  If you send them, it will just ignore them.   All you have to do is  connect.    You can use `curl` and http to do this too
+
+{{{
+curl http://localhost:8649
+}}}
+
+=== In Python ===
+
+If you use http in python via [http://docs.python.org/library/urllib2.html urllib2].  It gets mad that it's http headers were not read.  I'm not convinced python's networking stack is so great anyways, so we'll write a mini program that uses raw [http://docs.python.org/library/socket.html sockets].
+
+{{{
+def read(host, port):
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((host, port))
+    data = ""
+    while True:
+        bytes = s.recv(4096)
+        if len(bytes) == 0:
+            break;
+        data += bytes
+    s.close()
+    return data
+}}}
+
+This probably sucks, and doesn't handle error cases correctly, but seems to be ok for now.
+
 == The XML ==
 
 For some reason, gmond spits of a full DTD every request.  I do not know why.   Anyway if you are into that type thing, there it is.
@@ -33,7 +66,24 @@ Anyways, it's really simple:
 }}}
 
 
-You'll see a lot of extra stuff.  most of it is self-explanitory.  Most of it I don't use.
+You'll see a lot of extra stuff.  most of it is self-explanitory.   Most of it I don't use, so the goal is strip this down.  Basically I want to do  `hosts[_host_][_metric_]` to get the value.
+
+{{{
+def parse(s):
+    hosts = {}
+    root = etree.XML(s)
+    # newer versions could do:
+    #for host in root.iter('HOST'):
+    for host in root.findall('HOST'):
+        name = host.get('NAME')
+	hosts[name] = {}
+        metrics = hosts[name]
+        # new versions of lxml could do
+        #for m in host.iter('METRIC'):
+        for m in host.findall('METRIC'):
+            metrics[m.get('NAME')] = m.attrib.get("VAL")
+    return hosts
+}}}
 
 
 
