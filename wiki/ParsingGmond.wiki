@@ -57,7 +57,7 @@ Anyways, it's really simple:
 
 {{{
 <GANGLIA>
-   <HOST NAME="172.16.70.128" >
+   <HOST NAME="172.16.70.128" ...  >
      <METRIC name="foo" value="bar" ... > ... </METRIC>
      <METRIC name="foo" value="bar" ... > ... </METRIC>
    </HOST>
