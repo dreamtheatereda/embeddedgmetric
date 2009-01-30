@@ -1,0 +1,39 @@
+#summary Parsing that xml from gmond
+
+= Introduction =
+
+In this installment we are going to parse the output of gmond.  
+
+== Install ==
+
+We are going to use [http://python.org python] with  [http://codespeak.net/lxml/ lxml].   But this is so simple, it borders on use regular expressions.
+
+For you YUM people, using the [https://rpmrepo.org/RPMforge/Using RPMForge] repository, it should be as simple as 
+
+{{{
+sudo yum install python-lxml
+}}}
+
+otherwise, you'll need [http://xmlsoft.org/downloads.html libxml2] first, and manual install lxml.  It should be fairly straight forward.
+
+== The XML ==
+
+For some reason, gmond spits of a full DTD every request.  I do not know why.   Anyway if you are into that type thing, there it is.
+
+Anyways, it's really simple:
+
+{{{
+<GANGLIA>
+   <HOST NAME="172.16.70.128" >
+     <METRIC name="foo" value="bar" ... > ... </METRIC>
+     <METRIC name="foo" value="bar" ... > ... </METRIC>
+   </HOST>
+   <HOST NAME="...">
+     etc...
+}}}
+
+
+You'll see a lot of extra stuff.  most of it is self-explanitory.  Most of it I don't use.
+
+
+
