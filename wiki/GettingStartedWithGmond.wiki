@@ -10,7 +10,9 @@ You need 3 RPMs
  * gmond - the metrics collector/emitter/receiver.
 
 
-Here's what I used
+Here's what I used... manual
+
+=== Manual RPM ===
 
 {{{
 # libconfuse
@@ -24,6 +26,14 @@ sudo rpm -ivh libganglia-3_1_0-3.1.1-1.i386.rpm
 #
 wget 'http://downloads.sourceforge.net/ganglia/ganglia-gmond-3.1.1-1.i386.rpm'
 sudo rpm -ivh ganglia-gmond-3.1.1-1.i386.rpm
+}}}
+
+=== YUM style ===
+
+IIf you add  <a href="https://rpmrepo.org/RPMforge/Using">RPM Forge</a> to your YUM repository list, then it should be as simple as 
+
+{{{
+sudo yum install ganglia-gmond
 }}}
 
 = Starting and Stopping =
@@ -109,4 +119,3 @@ Once you have gmond running on all your boxes, the XML should have multiple `HOS
 You are now collecting metrics.
 
 Next time... how to do graphing.
-
