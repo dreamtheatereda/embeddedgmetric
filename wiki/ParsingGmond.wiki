@@ -145,3 +145,7 @@ $ ./gparse.py
    swap_free = 1572856.000
    swap_total = 1572856.000
 }}}
+
+=== Next time... ===
+
+Ok next time, we'll work on putting this data somewhere and graphing!
