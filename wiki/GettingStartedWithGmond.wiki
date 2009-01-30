@@ -9,8 +9,7 @@ You need 3 RPMs
  * libganglia -- the core libraries
  * gmond - the metrics collector/emitter/receiver.
 
-
-Here's what I used... manual
+There are few ways to get them:
 
 === Manual RPM ===
 
@@ -38,7 +37,9 @@ sudo yum install ganglia-gmond
 
 = Starting and Stopping =
 
-On most unix-like  systems, it should be
+On RedHat systems, the daemon is installed, started, and added to `init.d` so it starts when the machine boots up.
+
+For manual control, it should be:
 
 {{{
 /etc/init.d/gmond [start|stop|restart]
