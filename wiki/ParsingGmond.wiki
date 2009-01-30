@@ -148,4 +148,7 @@ $ ./gparse.py
 
 === Next time... ===
 
+
+This code is in svn [http://embeddedgmetric.googlecode.com/svn/trunk/pmond/pmond/gparse.py here].  Go nuts!
+
 Ok next time, we'll work on putting this data somewhere and graphing!
