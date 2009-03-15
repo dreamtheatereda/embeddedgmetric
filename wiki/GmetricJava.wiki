@@ -26,4 +26,4 @@ Right now it's UDP (aka "!DataGram") only.  However it should be a snap to add m
 
 Multicast and additional functionality [http://embeddedgmetric.googlecode.com/svn/trunk/gmetric3/java/src/ src]
 
-Multicast project [http://embeddedgmetric.googlecode.com/svn/trunk/gmetric3/java/doc/index.html documentation]
+Multicast project [http://embeddedgmetric.googlecode.com/svn/trunk/gmetric3/java/doc/ documentation]
