@@ -1,28 +1,8 @@
 #summary Embedded gmetric for java
 #labels Featured
 
-It's [http://embeddedgmetric.googlecode.com/svn/trunk/java/gmetric.java one file],  and not very "java-like".  I have no intention of adding enums and various type checkers.  Lean and mean!  There are some statics for helping you with valid slope and type values.
-
-Right now it's UDP (aka "!DataGram") only.  However it should be a snap to add multi-cast.
-
-
-{{{
- //  you specify value as string and type
-  public static void send(InetAddress address, int port,
-                             String name, String value, String type,
-                             String units, int slope, int tmax, int dmax)
-
-   // helper for double values
-   public static void send(InetAddress address, int port,
-                            String name, double dvalue,
-                            String units, int slope, int tmax, int dmax)
-
-   // helper for int values
-   public static void send(InetAddress address, int port,
-                            String name, int dvalue,
-                            String units, int slope, int tmax, int dmax)
-
-}}}
+Single UDP example
+[http://embeddedgmetric.googlecode.com/svn/trunk/java/gmetric3.java src]
 
 Multicast and additional functionality [http://embeddedgmetric.googlecode.com/svn/trunk/gmetric3/java/src/ src]
 
