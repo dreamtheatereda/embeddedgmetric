@@ -2,7 +2,7 @@
 #labels Featured
 
 Single UDP example
-[http://embeddedgmetric.googlecode.com/svn/trunk/java/gmetric3.java src]
+[http://embeddedgmetric.googlecode.com/svn/trunk/gmetric3/java/gmetric3.java src]
 
 Multicast and additional functionality [http://embeddedgmetric.googlecode.com/svn/trunk/gmetric3/java/src/ src]
 
