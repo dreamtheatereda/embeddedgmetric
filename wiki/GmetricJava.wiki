@@ -1,21 +1,23 @@
 #summary Embedded gmetric for java
 #labels Featured
 
-Single UDP example
+*Single UDP example*
 [http://embeddedgmetric.googlecode.com/svn/trunk/gmetric3/java/gmetric3.java src]
 
-Multicast and additional functionality [http://embeddedgmetric.googlecode.com/svn/trunk/gmetric3/java/src/ src]
+*Multicast and additional functionality *[http://embeddedgmetric.googlecode.com/svn/trunk/gmetric3/java/src/ src]
 
-Multicast project [http://embeddedgmetric.googlecode.com/svn/trunk/gmetric3/java/doc/ documentation]
+*Multicast project*
+[http://embeddedgmetric.googlecode.com/svn/trunk/gmetric3/java/doc/ documentation]
 
 
-Usage (taken from main() /gmetric3/java/src/java/info/ganglia/GMonitor.java)
--Creates a Monitor and two testMetrics
--Generates random values and increments metrics in a loop
--Metrics are reported back at the specified interval and should show up in ganglia graphs
-
-       /**
+*Usage*
+(taken from main() /gmetric3/java/src/java/info/ganglia/GMonitor.java)
+{{{
+	/**
 	 * Usage: java -jar GangliaMetrics.jar multicastAddress
+         * Creates a Monitor and two testMetrics
+         * Generates random values and increments metrics in a loop
+         * Metrics are reported back at the specified interval and should show up in ganglia graphs
 	 * 
 	 * @param args
 	 * @throws Exception
@@ -48,3 +50,4 @@ Usage (taken from main() /gmetric3/java/src/java/info/ganglia/GMonitor.java)
 			testMetric2.incrementValue(countDouble);
 		}
 	}
+}}}
